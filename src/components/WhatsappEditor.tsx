@@ -82,11 +82,13 @@ export const WhatsappEditor = forwardRef<HTMLDivElement, WhatsappEditorProps>(
                 <LexicalComposer initialConfig={initialConfig}>
                     <div className="wa-editor-inner">
                         <ToolbarPlugin/>
-                        <RichTextPlugin
-                            contentEditable={<ContentEditable className="wa-editor-input"/>}
-                            placeholder={<div className="wa-editor-placeholder">{placeholder}</div>}
-                            ErrorBoundary={LexicalErrorBoundary}
-                        />
+                        <div className="wa-editor-input-wrapper">
+                            <RichTextPlugin
+                                contentEditable={<ContentEditable className="wa-editor-input" />}
+                                placeholder={<div className="wa-editor-placeholder">{placeholder}</div>}
+                                ErrorBoundary={LexicalErrorBoundary as React.ComponentType<any>}
+                            />
+                        </div>
                         <HistoryPlugin/>
 
                         <OnChangePlugin onChange={handleEditorChange}/>

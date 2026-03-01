@@ -19,8 +19,8 @@ export const WHATSAPP_TRANSFORMERS: Array<TextFormatTransformer | ElementTransfo
     },
     {
         format: ['code'],
-        tag: '`', // <-- Single backtick for inline code (Modern WhatsApp)
+        tag: '`',
         type: 'text-format',
     },
-    CODE, // <-- Lexical's built-in rule for multiline ``` blocks
+    CODE,
 ];
