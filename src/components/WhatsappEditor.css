@@ -1,0 +1,79 @@
+.wa-editor-root {
+    --wa-bg: #ffffff;
+    --wa-text: #111b21;
+    --wa-placeholder: #8696a0;
+    --wa-border: #d1d7db;
+    --wa-focus-ring: #00a884;
+    --wa-code-bg: #f0f2f5;
+    --wa-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+    font-family: var(--wa-font), serif;
+    position: relative;
+    width: 100%;
+}
+
+.wa-editor-root.wa-theme-dark {
+    --wa-bg: #2a3942;
+    --wa-text: #d1d7db;
+    --wa-placeholder: #8696a0;
+    --wa-border: #202c33;
+    --wa-focus-ring: #00a884;
+    --wa-code-bg: #202c33;
+}
+
+.wa-editor-inner {
+    background-color: var(--wa-bg);
+    border: 1px solid var(--wa-border);
+    border-radius: 8px;
+    position: relative;
+}
+
+.wa-editor-input {
+    min-height: 40px;
+    padding: 10px 14px;
+    color: var(--wa-text);
+    outline: none;
+    font-size: 15px;
+    line-height: 20px;
+}
+
+.wa-editor-input:focus {
+    border-color: var(--wa-focus-ring);
+}
+
+.wa-editor-placeholder {
+    position: absolute;
+    top: 10px;
+    left: 14px;
+    color: var(--wa-placeholder);
+    pointer-events: none;
+    font-size: 15px;
+}
+
+.wa-editor-text-bold {
+    font-weight: bold;
+}
+
+.wa-editor-text-italic {
+    font-style: italic;
+}
+
+.wa-editor-text-strikethrough {
+    text-decoration: line-through;
+}
+
+.wa-editor-code-block {
+    font-family: var(--wa-font-mono, monospace);
+    background-color: var(--wa-code-bg);
+    padding: 8px 12px;
+    border-radius: 6px;
+    display: block;
+    white-space: pre-wrap;
+    margin: 8px 0;
+    border: 1px solid var(--wa-border);
+    overflow-x: auto;
+}
+
+.wa-editor-paragraph {
+    margin: 0;
+}
