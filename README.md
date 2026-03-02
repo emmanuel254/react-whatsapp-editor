@@ -6,7 +6,7 @@
 
 A plug-and-play, enterprise-grade rich text editor for React that perfectly replicates WhatsApp's unique Markdown formatting rules. Built on top of Meta's powerful [Lexical](https://lexical.dev/) framework.
 
-![React WhatsApp Editor Demo](https://github.com/user-attachments/assets/88d0d51b-6563-4a90-9051-48fe06b6c8c6)
+![React WhatsApp Editor Demo](https://raw.githubusercontent.com/emmanuel254/react-whatsapp-editor/main/demo.png)
 
 ## 🚀 Why this editor?
 
