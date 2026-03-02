@@ -4,6 +4,8 @@
 ![License](https://img.shields.io/npm/l/react-whatsapp-editor)
 ![React](https://img.shields.io/badge/React-18.0+-blue)
 
+**🌟 [Try the Live Interactive Demo Here!](https://react-whatsapp-editor-demo.vercel.app) 🌟**
+
 A plug-and-play, enterprise-grade rich text editor for React that perfectly replicates WhatsApp's unique Markdown formatting rules. Built on top of Meta's powerful [Lexical](https://lexical.dev/) framework.
 
 ![React WhatsApp Editor Demo](https://raw.githubusercontent.com/emmanuel254/react-whatsapp-editor/main/demo.png)
