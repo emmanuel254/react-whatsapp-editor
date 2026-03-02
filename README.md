@@ -18,6 +18,7 @@ Standard Markdown editors break when you try to apply WhatsApp's strict formatti
 
 ### ✨ Features
 * **WhatsApp Markdown Rules:** Supports `*bold*`, `_italic_`, `~strikethrough~`, `` `inline code` ``, and ` ```multiline code``` `.
+* **Native Emoji Picker:** Built-in, responsive emoji menu that automatically syncs with your light/dark theme.
 * **Smart Toolbar:** Context-aware formatting buttons that disable themselves when inside conflicting block elements.
 * **Two-Way Binding:** Safely load database strings into the editor without cursor jumping.
 * **First-Class Dark Mode:** Built-in `light` and `dark` themes.
@@ -98,6 +99,7 @@ This editor strictly enforces modern WhatsApp syntax:
 * **Strikethrough:** Wrap text in tildes `~like this~`.
 * **Inline Code:** Wrap text in single backticks ``like this``.
 * **Multiline Code Block:** Type three backticks ````` and start typing to create a shaded code block.
+* **Emojis:** Use the built-in toolbar smiley face to open the picker, or use your native OS emoji keyboard. Emojis are parsed and exported as standard Unicode characters.
 
 ---
 
