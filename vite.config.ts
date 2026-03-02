@@ -6,7 +6,12 @@ import {resolve} from 'path';
 export default defineConfig({
     plugins: [
         react(),
-        dts({insertTypesEntry: true}),
+        dts({
+            insertTypesEntry: true,
+            rollupTypes: true,
+            tsconfigPath: './tsconfig.app.json',
+            exclude: ['src/dev.tsx', 'src/App.tsx'],
+        }),
     ],
     build: {
         lib: {

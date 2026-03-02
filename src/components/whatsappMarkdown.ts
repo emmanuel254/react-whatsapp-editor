@@ -1,7 +1,9 @@
-import type {TextFormatTransformer, ElementTransformer} from '@lexical/markdown';
+import type {TextFormatTransformer, ElementTransformer, MultilineElementTransformer} from '@lexical/markdown';
 import {CODE} from '@lexical/markdown';
 
-export const WHATSAPP_TRANSFORMERS: Array<TextFormatTransformer | ElementTransformer> = [
+export const WHATSAPP_TRANSFORMERS: Array<
+    TextFormatTransformer | ElementTransformer | MultilineElementTransformer
+> = [
     {
         format: ['bold'],
         tag: '*',

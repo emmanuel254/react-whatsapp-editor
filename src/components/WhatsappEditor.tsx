@@ -34,7 +34,6 @@ const editorTheme = {
     },
 };
 
-// The new sync plugin
 const MarkdownUpdatePlugin = ({value}: { value?: string }) => {
     const [editor] = useLexicalComposerContext();
 
