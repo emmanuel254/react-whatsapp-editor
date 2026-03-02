@@ -1,16 +1,41 @@
-import { useEffect, useState, useCallback } from 'react';
-import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
-import { FORMAT_TEXT_COMMAND, $getSelection, $isRangeSelection } from 'lexical';
-import { $setBlocksType } from '@lexical/selection';
-import { $createCodeNode, $isCodeNode } from '@lexical/code';
+import {useCallback, useEffect, useRef, useState} from 'react';
+import {useLexicalComposerContext} from '@lexical/react/LexicalComposerContext';
+import {$getSelection, $isRangeSelection, FORMAT_TEXT_COMMAND} from 'lexical';
+import {$setBlocksType} from '@lexical/selection';
+import {$createCodeNode, $isCodeNode} from '@lexical/code';
+import EmojiPicker, {Theme} from 'emoji-picker-react'; // <-- 1. Import the picker
 
-export const ToolbarPlugin = () => {
+interface ToolbarPluginProps {
+    theme?: 'light' | 'dark';
+}
+
+export const ToolbarPlugin = ({theme = 'light'}: ToolbarPluginProps) => {
     const [editor] = useLexicalComposerContext();
 
     const [isBold, setIsBold] = useState(false);
     const [isItalic, setIsItalic] = useState(false);
     const [isStrikethrough, setIsStrikethrough] = useState(false);
     const [isCode, setIsCode] = useState(false);
+
+    const [showEmojiPicker, setShowEmojiPicker] = useState(false);
+
+    const emojiContainerRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (emojiContainerRef.current && !emojiContainerRef.current.contains(event.target as Node)) {
+                setShowEmojiPicker(false);
+            }
+        };
+
+        if (showEmojiPicker) {
+            document.addEventListener('mousedown', handleClickOutside);
+        }
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [showEmojiPicker]);
 
     const updateToolbar = useCallback(() => {
         const selection = $getSelection();
@@ -21,13 +46,12 @@ export const ToolbarPlugin = () => {
 
             const anchorNode = selection.anchor.getNode();
             const element = anchorNode.getKey() === 'root' ? anchorNode : anchorNode.getTopLevelElementOrThrow();
-
             setIsCode(selection.hasFormat('code') || $isCodeNode(element));
         }
     }, [editor]);
 
     useEffect(() => {
-        return editor.registerUpdateListener(({ editorState }) => {
+        return editor.registerUpdateListener(({editorState}) => {
             editorState.read(() => {
                 updateToolbar();
             });
@@ -51,8 +75,17 @@ export const ToolbarPlugin = () => {
         });
     };
 
+    const onEmojiClick = (emojiData: { emoji: string; }) => {
+        editor.update(() => {
+            const selection = $getSelection();
+            if ($isRangeSelection(selection)) {
+                selection.insertText(emojiData.emoji);
+            }
+        });
+    };
+
     return (
-        <div className="wa-editor-toolbar">
+        <div className="wa-editor-toolbar" style={{position: 'relative'}}>
             <button
                 type="button"
                 className={`wa-toolbar-btn ${isBold ? 'active' : ''}`}
@@ -88,6 +121,30 @@ export const ToolbarPlugin = () => {
             >
                 {`</>`}
             </button>
+
+            <div
+                ref={emojiContainerRef}
+                style={{position: 'relative'}}
+            >
+                <button
+                    type="button"
+                    className={`wa-toolbar-btn ${showEmojiPicker ? 'active' : ''}`}
+                    onClick={() => setShowEmojiPicker(!showEmojiPicker)}
+                    aria-label="Insert Emoji"
+                >
+                    😀
+                </button>
+
+                {showEmojiPicker && (
+                    <div className="wa-emoji-picker-wrapper" style={{right: 0}}>
+                        <EmojiPicker
+                            onEmojiClick={onEmojiClick}
+                            theme={theme === 'dark' ? Theme.DARK : Theme.LIGHT}
+                        />
+                    </div>
+                )}
+            </div>
+
         </div>
     );
 };

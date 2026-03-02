@@ -13,7 +13,7 @@ import {WHATSAPP_TRANSFORMERS} from './whatsappMarkdown';
 
 import './WhatsappEditor.css';
 import {ToolbarPlugin} from "./ToolbarPlugin.tsx";
-import { AutoCodeBlockPlugin } from './AutoCodeBlockPlugin';
+import {AutoCodeBlockPlugin} from './AutoCodeBlockPlugin';
 import {useLexicalComposerContext} from "@lexical/react/LexicalComposerContext";
 
 export interface WhatsappEditorProps {
@@ -80,10 +80,10 @@ export const WhatsappEditor = forwardRef<HTMLDivElement, WhatsappEditorProps>(
             <div ref={ref} className={`wa-editor-root wa-theme-${theme} ${className}`}>
                 <LexicalComposer initialConfig={initialConfig}>
                     <div className="wa-editor-inner">
-                        <ToolbarPlugin/>
+                        <ToolbarPlugin theme={theme}/>
                         <div className="wa-editor-input-wrapper">
                             <RichTextPlugin
-                                contentEditable={<ContentEditable className="wa-editor-input" />}
+                                contentEditable={<ContentEditable className="wa-editor-input"/>}
                                 placeholder={<div className="wa-editor-placeholder">{placeholder}</div>}
                                 ErrorBoundary={LexicalErrorBoundary as React.ComponentType<any>}
                             />
@@ -96,7 +96,7 @@ export const WhatsappEditor = forwardRef<HTMLDivElement, WhatsappEditorProps>(
 
                         <MarkdownUpdatePlugin value={value}/>
 
-                        <AutoCodeBlockPlugin />
+                        <AutoCodeBlockPlugin/>
                     </div>
                 </LexicalComposer>
             </div>
