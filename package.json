@@ -1,5 +1,13 @@
 {
   "name": "react-whatsapp-editor",
+  "description": "A plug-and-play WhatsApp-style rich text editor for React.",
+  "keywords": ["react", "whatsapp", "editor", "markdown", "lexical", "wysiwyg"],
+  "author": "Emmanuel Chesire",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/emmanuel254/react-whatsapp-editor.git"
+  },
   "private": true,
   "version": "0.1.0",
   "type": "module",
