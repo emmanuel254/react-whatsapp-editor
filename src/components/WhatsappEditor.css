@@ -154,13 +154,15 @@
 .wa-emoji-picker-wrapper {
     position: absolute;
     top: 100%;
-    right: 8px;
+    left: 10px;
     z-index: 1000;
     margin-top: 6px;
     box-shadow: 0 4px 16px rgba(0,0,0,0.15);
     border-radius: 8px;
     overflow: hidden;
     max-width: calc(100vw - 40px);
+    transform-origin: top left;
+    animation: wa-picker-slide-down 0.2s cubic-bezier(0, 0.9, 0.3, 1) forwards;
 }
 
 .wa-theme-dark .wa-emoji-picker-wrapper {
@@ -173,4 +175,15 @@
 
 .wa-theme-dark .wa-emoji-picker-wrapper {
     box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+}
+
+@keyframes wa-picker-slide-down {
+    0% {
+        opacity: 0;
+        transform: translateY(-8px) scale(0.98);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }

@@ -124,7 +124,6 @@ export const ToolbarPlugin = ({theme = 'light'}: ToolbarPluginProps) => {
 
             <div
                 ref={emojiContainerRef}
-                style={{position: 'relative'}}
             >
                 <button
                     type="button"
@@ -136,10 +135,12 @@ export const ToolbarPlugin = ({theme = 'light'}: ToolbarPluginProps) => {
                 </button>
 
                 {showEmojiPicker && (
-                    <div className="wa-emoji-picker-wrapper" style={{right: 0}}>
+                    <div className="wa-emoji-picker-wrapper" style={{left: 0}}>
                         <EmojiPicker
                             onEmojiClick={onEmojiClick}
                             theme={theme === 'dark' ? Theme.DARK : Theme.LIGHT}
+                            width={310}
+                            height={400}
                         />
                     </div>
                 )}
