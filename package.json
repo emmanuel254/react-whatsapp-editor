@@ -1,6 +1,7 @@
 {
   "name": "react-whatsapp-editor",
   "description": "A plug-and-play WhatsApp-style rich text editor for React.",
+  "homepage": "https://react-whatsapp-editor-demo.vercel.app",
   "keywords": [
     "react",
     "whatsapp",
@@ -15,7 +16,10 @@
     "type": "git",
     "url": "https://github.com/emmanuel254/react-whatsapp-editor.git"
   },
-  "version": "0.2.2",
+  "bugs": {
+    "url": "https://github.com/emmanuel254/react-whatsapp-editor/issues"
+  },
+  "version": "0.2.3",
   "type": "module",
   "main": "./dist/react-whatsapp-editor.umd.js",
   "module": "./dist/react-whatsapp-editor.es.js",

@@ -105,7 +105,7 @@ This editor strictly enforces modern WhatsApp syntax:
 
 ## 🤝 Contributing
 
-Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://www.google.com/search?q=https://github.com/emmanuel254/react-whatsapp-editor/issues).
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/emmanuel254/react-whatsapp-editor/issues).
 
 ## 📜 License
 
